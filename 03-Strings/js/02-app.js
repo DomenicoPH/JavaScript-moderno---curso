@@ -11,5 +11,5 @@ console.log(producto.indexOf('pulgadas'))   // 11 -> 'Monitor' encontrado en ín
 console.log(producto.indexOf('tablet'))     // -1 (No encontrado)
 
 /* Método: .includes */
-console.log(producto.includes('tablet'));
-console.log(producto.includes('Monitor'));
+console.log(producto.includes('tablet'));   //false
+console.log(producto.includes('Monitor'));  //true
