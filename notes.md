@@ -63,3 +63,9 @@ Strings:
     Ex:
     const producto = '        Monitor 20 pulgadas              ';
     producto.trim()  --->  'Monitor 20 pulgadas';
+
+## .replace()
+
+## .slice()
+
+## .substring()
