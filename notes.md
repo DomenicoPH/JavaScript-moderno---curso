@@ -66,6 +66,40 @@ Strings:
 
 ## .replace()
 
+    Se aplica al string que se busca modificar. Recibe dos parámetros: El primero es la parte del string que se quiere cambiar. La segunda es el nuevo string que se busca insertar.
+
+    Ex:
+    const producto = 'Monitor 20 pulgadas';
+    producto.replace(' pulgadas', '"');  --->  'Monitor 20"'
+
 ## .slice()
 
+    Toma una tajada del string. Recibe dos parámetros: El primero es el índice a partir del cual se corta la tajada. El segundo es el índice hasta el cual se corta la tajada (pero no se incluye).
+    Si se ingresa solo un parámetro, este indicará el valor del índice inicial de corte y tomará una tajada hasta el final del string.
+
+    Ex:
+    const producto = 'Monitor 20 pulgadas'
+
+    producto.slice(0,10);  --->  'Monitor 20'
+    producto.slice(8);  --->  '20 pulgadas'
+    producto.slice(2,0)  --->  '' (No va hacia atrás,para eso se usa .substring)
+
 ## .substring()
+
+    Toma una subcadena de la cadena de texto a la que se le aplique. Funciona igual que .slice solo que este si va en reversa.
+
+    Ex:
+    const producto = 'Monitor 20 pulgadas'
+
+    producto.slice(0,10);  --->  'Monitor 20'
+    producto.slice(8);  --->  '20 pulgadas'
+    producto.slice(2,0);  --->  'Mo'
+
+## .charAt()
+
+    Toma el caracter en el índice especificado por parámetro.
+
+    Ex:
+    const usuario = 'Domenico'
+    usuario.charAt(0)  --->  'D'
+    usuario.charAt(2)  --->  'm'
