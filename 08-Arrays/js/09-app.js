@@ -9,7 +9,13 @@ const carrito = [
     {nombre: 'Celular', precio: 700}
 ]
 
+// Imperativo | Se especifica el proceso...
 console.log('Todos mis productos: ')
 for(let i=0; i < carrito.length; i++){
-    console.log(`${i+1} - ${carrito[i].nombre}`);
+    console.log(`${i+1} - ${carrito[i].nombre} $${carrito[i].precio}`);
 }
+
+// Declarativo | Se declara la intención...
+carrito.forEach(function(producto){
+    console.log(`${producto.nombre} $${producto.precio}`);
+})
