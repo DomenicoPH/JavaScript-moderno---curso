@@ -7,13 +7,8 @@ const carrito = [
     {nombre: 'Celular', precio: 700}
 ]
 
-const arregloMap = carrito.map(function(prod){
-    return `${prod.nombre} - ${prod.precio}`
-})
+const arregloMap = carrito.map(prod => `${prod.nombre} - ${prod.precio}`)
 
-const arregloForEach = carrito.forEach(function(prod){
-    return `${prod.nombre} - ${prod.precio}`
-})
+carrito.forEach((prod) => console.log(`${prod.nombre} - ${prod.precio}`))
 
 console.log(arregloMap)
-console.log(arregloForEach)
