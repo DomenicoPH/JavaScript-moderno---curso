@@ -1,4 +1,4 @@
-// Iteradores: for of
+// Iteradores: for of (PARA ARREGLOS)
 
 const pendientes = ['Tarea', 'Comer', 'Proyecto', 'Estudiar JS'];
 
