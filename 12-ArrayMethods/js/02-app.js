@@ -36,6 +36,12 @@ let indiceDiciembre = meses.findIndex(mes => mes === 'Diciembre')
 //console.log(indiceDiciembre);
 
 let indice = meses.findIndex(mes => mes === 'Noviembre');
+if(indice >= 0){
+    console.log('El mes existe')
+} else {
+    console.log('El mes no existe')
+}
+
 indice = meses.findIndex(mes => mes === 'Marzo');
 if(indice >= 0){
     console.log('El mes existe')
@@ -43,7 +49,35 @@ if(indice >= 0){
     console.log('El mes no existe')
 }
 
+// findIndex() en un arreglo de objetos... 
 
+// .nombre
+let tabletIndex = carrito.findIndex((p) => p.nombre === 'Tablet');
+console.log(tabletIndex);
+console.log(carrito[2].nombre);
+
+let audifIndex = carrito.findIndex((p) => p.nombre === 'Audifonos');
+console.log(audifIndex);
+console.log(carrito[3].nombre);
+
+let monitorIndex = carrito.findIndex((p) => p.nombre.includes('Monitor'));
+console.log(monitorIndex);
+console.log(carrito[0].nombre);
+
+monitorIndex = carrito.findIndex((p) => p.nombre === 'Monitor 27 Pulgadas');
+console.log(monitorIndex);
+console.log(carrito[0].nombre);
+
+let indexOfT = carrito.findIndex((p) => p.nombre.includes('T'));
+console.log(indexOfT);
+console.log(carrito[1].nombre);
+
+// .precio
+let cuesta100 = carrito.findIndex( producto => producto.precio === 100 );
+console.log(cuesta100)
+console.log(carrito[1])
+
+//...
 
 
 //--- indexOf() ...(para encontrar el índice de un string)
@@ -56,3 +90,8 @@ console.log(febrero.indexOf('r'))
 console.log(febrero.indexOf('e'))
 console.log(febrero.indexOf('r'))
 // En un string, indexOf retorna el índice en el que se encuentra el caracter solicitado por primera vez.
+
+/*
+    .findIndex()
+    .indexOf()
+*/
