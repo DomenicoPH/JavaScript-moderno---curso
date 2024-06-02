@@ -33,7 +33,7 @@ meses.forEach(mes => {
 })
 
 
-// .includes()      Para arreglos que contienen datos primitivos (números, strings)
+// .includes()      Para arreglos de índices --> [0, 1, 2, 3]
 let resultado = meses.includes('Enero');
 console.log(resultado);
 
@@ -41,7 +41,7 @@ resultado = meses.includes('Diciembre');
 console.log(resultado);
 
 
-// .some()      Para arreglos que contienen objetos
+// .some()      Para arreglos de objetos --> [{i:0}, {i:1}, {i:2}]  ...( para este tipo de arreglos también se utiliza .findIndex() )
 let existe = carrito.some((producto) => {
     return producto.nombre === 'Celular';
 });
@@ -59,7 +59,7 @@ console.log(existe)
 existe = carrito.some(prod => prod.nombre === 'Teclado');
 console.log(existe)
 
-// .some() también funciona con arreglos planos
+// .some() también funciona con arreglos de índices...
 existe = meses.some( mes => mes === 'Enero');
 console.log(existe);
 
