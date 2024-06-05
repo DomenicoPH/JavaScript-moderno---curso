@@ -59,10 +59,10 @@ console.log(card.children[1]);  // div.info
 console.log('Traversing de Padre a Hijo')
 console.log(card);
 console.log(card.children);
-    //hijos...
+    //hijos... ↓
     console.log(card.children[0]);
     console.log(card.children[1]);
-        //hijo de hijo...
+        //hijo de hijo... ↓
         console.log(card.children[1].children[0]);
         console.log(card.children[1].children[1]);
         console.log(card.children[1].children[2]);
@@ -80,4 +80,20 @@ console.log(card.parentElement);    // Igual que Children, trae solo elementos h
     console.log(card.parentElement.parentElement.parentElement.parentElement.parentElement);    // ↑
     console.log(card.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement); // null
 
-    
+
+// Traversing entre hermanos
+console.log('Traversing entre hermanos')
+console.log(card);  // →
+console.log(card.nextElementSibling);   // →
+console.log(card.nextElementSibling.nextElementSibling);    // →
+console.log(card.nextElementSibling.nextElementSibling.nextElementSibling); // →
+console.log(card.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling);  // null
+
+const ultimoCard = document.querySelector('.card:nth-child(4)')
+console.log(ultimoCard);
+
+const penultimoCard = ultimoCard.previousElementSibling;    // ←
+console.log(penultimoCard);
+console.log(penultimoCard.previousElementSibling);  // ←
+console.log(penultimoCard.previousElementSibling.previousElementSibling);   // ←
+console.log(penultimoCard.previousElementSibling.previousElementSibling.previousElementSibling);    // null

@@ -133,3 +133,92 @@
 
 
 ## Numbers:
+
+## DOM
+
+### document
+
+    document.all        --> Selecciona todo el documento html
+    document.head       --> Selecciona la etiqueta <head>
+    document.body       --> Selecciona la etiqueta <body>
+    document.forms      --> Selecciona todas las forms
+    document.links      --> Selecciona todos los links
+    document.images     --> Selecciona todas las imagenes
+    document.scripts    --> Selecciona todos los scripts
+
+
+## DOM - Selectores
+
+### .getElementsByClassName()
+
+    document.getElementsByClassName('header');       // Retorna un array con el/los elementos que tengan la clase solicitada
+    document.getElementsByClassName('hero');         // Retorna un array con el/los elementos que tengan la clase solicitada
+    document.getElementsByClassName('footer');       // Retorna un array con el/los elementos que tengan la clase solicitada
+
+### .getElementById()
+
+    document.getElementById('formulario')       // Retorna el elemento que tenga el id solicitado.
+    
+### .querySelector()
+
+    document.querySelector('.info')         // Retorna el primer elemento que encuentre con la clase 'info'
+    document.querySelector('#footer')       // Retorna el primer elemento que encuentre con el id 'footer'
+    document.querySelector('nav')           // Retorna el primer elemento que encuentre del tipo 'nav'
+
+### .querySelectorAll()
+
+    document.querySelectorAll('.info')      // Retorna todos los elementos que encuentre con la clase 'info'
+    document.querySelectorAll('#footer')    // Retorna todos los elementos que encuentre con el id 'footer'
+    document.querySelectorAll('div')        // Retorna todos los elementos que encuentre del tipo 'div'
+
+### .childNodes
+
+### .children
+
+### .NodeName
+
+### .NodeType
+
+## DOM - Métodos
+
+### .innerText
+
+    const encabezado = document.querySelector('.contenido-hero h1');
+    console.log(encabezado.innerText);
+
+        // Retorna el texto contenido (Si se ha establecido en CSS que visibility: hidden, innerText no encontrará el texto)
+
+### .textContent
+
+    const encabezado = document.querySelector('.contenido-hero h1');
+    console.log(encabezado.textContent); 
+
+        // Retorna el texto contenido.
+
+### .innerHTML
+
+    const encabezado = document.querySelector('.contenido-hero h1');
+    console.log(encabezado.innerHTML); 
+
+        // Retorna el HTML contenido, etiquetas incluidas.
+
+## .classList
+
+    const navegacion = document.querySelector('.navegacion');
+    console.log(navegacion.classList)
+
+        // Retorna DOMTokenList con las clases que correspondan al elemento seleccionado.
+
+## .className
+
+    const navegacion = document.querySelector('.navegacion');
+    console.log(navegacion.className)
+
+        // Retorna un string con las clase que corresponda al elemento seleccionado.
+
+## .style
+
+    const navegacion = document.querySelector('.navegacion');
+    console.log(navegacion.style)
+
+        // Muestra en consola las propiedades CSS del elemento seleccionado.
