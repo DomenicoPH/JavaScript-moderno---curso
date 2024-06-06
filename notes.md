@@ -296,3 +296,7 @@
 ### .appendChild()
 
 ### .insertBefore()
+
+### .setAttribute()
+
+### .add()
