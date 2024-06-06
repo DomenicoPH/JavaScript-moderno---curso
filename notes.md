@@ -173,11 +173,50 @@
 
 ### .childNodes
 
+    const navegacion = document.querySelector('.navegacion');
+    console.log(navegacion.childNodes)
+
+        // Retorna una NodeList con todos los nodos hijos (incluidos espacios y saltos de linea)
+
 ### .children
 
-### .NodeName
+    const navegacion = document.querySelector('.navegacion');
+    console.log(navegacion.children)
 
-### .NodeType
+        // Retorna una HTMLCollection con todos los nodos hijos que correspondan a elementos html.
+
+### .parentNode
+
+    const card = document.querySelector('.card');
+    console.log(card.parentNode);
+
+        // Retorna el nodo padre. Igual que childNodes, toma en cuenta los espacios y saltos de linea.
+
+### .parentElement
+
+    const card = document.querySelector('.card');
+    console.log(card.parentElement);
+
+        // Retorna el nodo padre. Igual que children, no toma en cuenta los espacios y saltos de linea.
+
+### .nextElementSibling
+
+    const card = document.querySelector('.card');
+    console.log(card.nextElementSibling);
+    console.log(card.nextElementSibling.nextElementSibling);
+    console.log(card.nextElementSibling.nextElementSibling.nextElementSibling);
+
+        // Retorna el siguiente nodo en el mismo nivel de jerarquía (nodo hermano).
+
+### .previousElementSibling
+
+    const ultimoCard = document.querySelector('.card:nth-child(4)')
+    const penultimoCard = ultimoCard.previousElementSibling;
+    console.log(penultimoCard.previousElementSibling);
+    console.log(penultimoCard.previousElementSibling.previousElementSibling);
+
+        // Retorna el nodo anterior en el mismo nivel de jerarquía (nodo hermano).
+
 
 ## DOM - Métodos
 
@@ -222,3 +261,38 @@
     console.log(navegacion.style)
 
         // Muestra en consola las propiedades CSS del elemento seleccionado.
+
+### .NodeName
+
+    console.log(navegacion.children[0].nodeName)
+
+        // Retorna el nombre del nodo.
+
+### .NodeType
+
+    console.log(navegacion.children[0].nodeType)
+
+        // Retorna el tipo del nodo.
+
+### .remove()
+
+    const primerEnlace = document.querySelector('a');
+    primerEnlace.remove();
+
+        // Elimina el elemento seleccionado de la estructura html.
+
+### .removeChild()
+
+    const navegacion = document.querySelector('.navegacion');
+    navegacion.removeChild(navegacion.children[0])
+
+        // Elimina nodos hijos desde el elemento padre.
+
+
+## DOM - Generación de HTML con JavaScript
+
+### .createElement()
+
+### .appendChild()
+
+### .insertBefore()

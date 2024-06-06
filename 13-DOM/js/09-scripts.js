@@ -40,7 +40,3 @@ console.log(navegacion.children);
     //navegacion.removeChild(navegacion.children[0])
     //navegacion.removeChild(navegacion.children[0])
     //navegacion.removeChild(navegacion.children[0])
-
-
-console.log(navegacion.classList)
-console.log(navegacion.className)
