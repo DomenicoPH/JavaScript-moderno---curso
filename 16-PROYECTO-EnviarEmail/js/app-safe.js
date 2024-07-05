@@ -13,15 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.querySelector('#formulario');
     const btnSubmit = document.querySelector('#formulario button[type="submit"]');
     const btnReset = document.querySelector('#formulario button[type="reset"]');
-    const spinner = document.querySelector('#spinner');
-    const cc = document.querySelector('#cc');
+    const spinner = document.querySelector('#spinner')
 
     // Eventos
     inputEmail.addEventListener('input', validar);
     inputAsunto.addEventListener('input', validar);
     inputMensaje.addEventListener('input', validar);
     formulario.addEventListener('submit', enviarEmail);
-    cc.addEventListener('input', validarCc);
     
     btnReset.addEventListener('click', (e) => {
         e.preventDefault();
@@ -80,21 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    function validarCc(e){
-        if(e.target.id === 'cc' && e.target.value !== '' && !validarEmail(e.target.value)){
-            mostrarAlerta('El email ingresado no es válido', e.target.parentElement);
-            btnSubmit.classList.add('opacity-50');
-            btnSubmit.disabled = true;
-            return;
-        }
-        limpiarAlerta(e.target.parentElement);
-        btnSubmit.classList.remove('opacity-50');
-        btnSubmit.disabled = false;
-        comprobarEmail();
-
-    }
-
-
     function mostrarAlerta(mensaje, ref){
 
         // Comprueba si ya existe una alerta en la referencia y la limpia.
@@ -126,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function comprobarEmail(){
-        console.log(email);
+        //console.log(email);
         if(Object.values(email).includes('')){
             btnSubmit.classList.add('opacity-50');
             btnSubmit.disabled = true;
