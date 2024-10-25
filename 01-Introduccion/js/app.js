@@ -22,7 +22,7 @@ console.warn('Eso no está permitido');
 
 console.timeEnd('Time-test');
 
-//onjeto 'persona'
+//objeto 'persona'
 const persona = {
     nombre: 'Domenico',
     apellido: 'Pagano',
