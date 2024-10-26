@@ -1,4 +1,6 @@
-/* Primeros pasos con Local Storage */
+/* 1. Primeros pasos con Local Storage */
+
+// localStorage.setItem('key','value')
 
 localStorage.setItem('nombre', 'Domenico');             //----------------> localStorage.setItem('key', 'value');
 
@@ -6,6 +8,8 @@ const producto = {
     nombre: 'Monitor 24 pulgadas',
     precio: 300
 };
+
+//JSON.stringify()
 
 const productoString = JSON.stringify( producto );
 
@@ -25,3 +29,9 @@ localStorage.setItem('numbers', JSON.stringify(nums));  //----------------> loca
     
     console.log('El type es: ', typeof(nums));                      //array
     console.log('El type es: ', typeof(JSON.stringify(nums)));      //string
+
+
+/*
+    localStorage.setItem('key','value')
+    JSON.stringify()
+*/
