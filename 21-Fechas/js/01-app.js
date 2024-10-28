@@ -5,7 +5,6 @@ const diaRandom = new Date('1-5-2000');     // Estructura: ('mes-dia-año')
 const diaBornDom = new Date('2-10-1986');
 const diaBornGra = new Date('January 14 1987');
 
-
 let valor;
 valor = diaHoy;
 valor = diaRandom;
@@ -38,3 +37,15 @@ console.log(diaHoy);
 
 console.log('Date: ', Date());
 console.log('Date Now: ', Date.now());
+
+
+// *** //
+
+console.log(new Date());
+
+// Fecha y hora actual
+console.log(new Date().toLocaleString());
+// Hora actual
+console.log(new Date().toLocaleTimeString());
+// Fecha actual
+console.log(new Date().toLocaleDateString());
