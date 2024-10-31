@@ -13,6 +13,8 @@ function UI(){
 // --------------------------------------------------------------
 
 // User Interface
+
+// Llena las opciones de los años
 UI.prototype.llenarOpciones = () => {
     const max = new Date().getFullYear() - 4;
     const min = max - 20;
@@ -25,6 +27,28 @@ UI.prototype.llenarOpciones = () => {
         selectYear.appendChild(option);
     }
 };
+
+// Muestra alertas en pantalla
+UI.prototype.mostrarMensaje = (mensaje, tipo) => {
+    const div = document.createElement('div');
+    
+    if(tipo === 'error'){
+        div.classList.add('error');
+    } else {
+        div.classList.add('correcto');
+    };
+
+    div.classList.add('mensaje', 'mt-10');
+    div.textContent = mensaje;
+
+    // Insertar en HTML
+    const formulario = document.querySelector('#cotizar-seguro');
+    formulario.insertBefore(div, document.querySelector('#resultado')); //.insertBefore( nuevo nodo, nodo de referencia )
+
+    // eliminar mensaje después de 3 segundos
+    setTimeout(() => { div.remove() }, 3000);
+    
+}
 
 // Instanciar UI
 const ui = new UI();
@@ -40,6 +64,8 @@ function eventListeners(){
     formulario.addEventListener('submit', cotizarSeguro);
 }
 
+// FUNCIONES //
+
 // Función Botón formulario 'Cotizar Seguro'
 function cotizarSeguro(e){
     e.preventDefault();
@@ -51,27 +77,15 @@ function cotizarSeguro(e){
     // LEER el tipo de cobertura:
     const tipo = document.querySelector('input[name="tipo"]:checked').value;
     
+    // Verificar si alguno de los campos está vacio y mostrar mensaje de error
     if(marca === '' || year === '' || tipo === ''){
-        console.log('No pasó la validación');
-    } else {
-        console.log('Si pasó la validación');
-        selecciona();
-        
+        ui.mostrarMensaje('Todos los campos son obligatorios', 'error');
+        return;
     }
-}
+    // Si no, mostrar mensaje correcto 'Cotiando...'
+    ui.mostrarMensaje('Cotizando...', 'exito');
 
-const selecciona = () => {
-            
-    let elegido;
-    if(marca === '1'){
-        elegido = 'Americando'
-        console.log(`${elegido} - ${year} - ${tipo}`)
-    } else if (marca === '2'){
-        elegido = 'Asiatico'
-        console.log(`${elegido} - ${year} - ${tipo}`)
-    } else if (marca === '3'){
-        elegido = 'Europeo'
-        console.log(`${elegido} - ${year} - ${tipo}`)
-    }
+    // Instanciar el seguro
 
+    // Utilizar el prototype que se va a cotizar
 }
