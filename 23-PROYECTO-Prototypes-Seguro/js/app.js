@@ -139,7 +139,7 @@ function cotizarSeguro(e){
 
     // Instanciar el seguro
     const seguro = new Seguro(marca, year, tipo);
-    seguro.cotizarSeguro();
+    const total = seguro.cotizarSeguro();
 
     // Utilizar el prototype que se va a cotizar
 }
