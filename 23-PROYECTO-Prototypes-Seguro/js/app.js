@@ -35,7 +35,7 @@ Seguro.prototype.cotizarSeguro = function(){
    }
 
    // Leer el año
-   const diferencia = new Date().getFullYear() - this.year;
+   const diferencia = (new Date().getFullYear() - 4) - this.year;
 
    // Cada año que la diferencia es mayor, el costo va a reducirse en un 3%
    cantidad -= ( (diferencia * 3) * cantidad ) / 100;
@@ -53,7 +53,7 @@ Seguro.prototype.cotizarSeguro = function(){
    };
 
    // Return...
-   console.log(cantidad);
+   //console.log(cantidad);
    return cantidad;
 
 }
@@ -102,6 +102,19 @@ UI.prototype.mostrarMensaje = (mensaje, tipo) => {
     
 }
 
+UI.prototype.mostrarResultado = (total, seguro) => {
+    const div = document.createElement('div');
+    div.classList.add('mt-10');
+    
+    div.innerHTML = `
+        <p class="header">Tu Resumen</p>
+        <p class="font-bold">Total: ${total}</p>
+    `;
+
+    const resultadoDiv = document.querySelector('#resultado');
+    resultadoDiv.appendChild(div);
+}
+
 // Instanciar UI
 const ui = new UI();
 
@@ -142,4 +155,5 @@ function cotizarSeguro(e){
     const total = seguro.cotizarSeguro();
 
     // Utilizar el prototype que se va a cotizar
+    ui.mostrarResultado(total, seguro);
 }
