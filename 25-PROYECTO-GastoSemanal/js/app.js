@@ -8,6 +8,8 @@ const gastoListado = document.querySelector('#gastos ul');      // Lista donde s
 eventListeners();   //ejecución de eventListeners();
 function eventListeners(){
     document.addEventListener('DOMContentLoaded', preguntarPresupuesto) // Cuando el DOM esté cargado ejecuta preguntarPresupuesto()
+
+    formulario.addEventListener('submit', agregarGasto);    // SUBMIT del formulario: ejecuta función agregar Gasto
 };
 
 
@@ -31,6 +33,10 @@ class UI{
         document.querySelector('#total').textContent = presupuesto;
         document.querySelector('#restante').textContent = restante;
     }
+
+    imprimirAlerta(){
+        return
+    }
 }
 
 // ----------------------------------------------------------------------Instanciado
@@ -38,6 +44,8 @@ const ui = new UI;
 let presupuesto;
 
 // ----------------------------------------------------------------------Funciones
+
+/* Preguntar presupuesto */
 function preguntarPresupuesto(){
     const presupuestoUsuario = prompt('¿Cuál es tu presupuesto?');  // Pregunta presupuesto y asigna el valor a 'presupuestoUsuario'
     
@@ -47,7 +55,21 @@ function preguntarPresupuesto(){
 
     // Presupuesto válido:
     presupuesto = new Presupuesto(presupuestoUsuario);
-    console.log(presupuesto);
+    /*BORRAR*/console.log('X --- OBJETO "presupuesto": --- X\n', presupuesto, '\nX --- TEMPORAL: BORRAR --- X');
 
     ui.insertarPresupuesto(presupuesto)
 };
+
+/* Agregar gastos */
+function agregarGasto(e){
+    e.preventDefault();
+
+    // leer los datos del formulario
+    const nombre = document.querySelector('#gasto').value;
+    const cantidad = document.querySelector('#cantidad').value;
+
+    // validar
+    if(nombre === '' || cantidad === ''){
+        console.log('Ambos campos son obligatorios')
+    }
+}
