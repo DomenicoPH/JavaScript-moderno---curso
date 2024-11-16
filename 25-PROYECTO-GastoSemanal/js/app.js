@@ -132,9 +132,12 @@ class UI{
             restanteDiv.classList.add('alert-danger');
             //console.log('gastaste el 75% (!)')
         } else if ((presupuesto / 2) > restante){
-            restanteDiv.classList.remove('alert-success');
+            restanteDiv.classList.remove('alert-success', 'alert-danger');
             restanteDiv.classList.add('alert-warning');
             //console.log('gastaste el 50% (!)')
+        } else {
+            restanteDiv.classList.remove('alert-danger', 'alert-warning');
+            restanteDiv.classList.add('alert-success');
         }
 
         // si el total es 0 o menor
@@ -207,7 +210,7 @@ function agregarGasto(e){
 /* Eliminar Gasto */
 function eliminarGasto(id){
     presupuesto.eliminarGasto(id);              // Usa el método eliminarGasto de presupuesto para borrar un gasto en función de su ID
-    
+
     const {gastos, restante} = presupuesto;
     ui.mostrarGastos(gastos);                   // actualiza la lista de gastos en el HTML
     ui.actualizarRestante(restante);            // actualiza el restante
