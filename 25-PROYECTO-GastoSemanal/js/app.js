@@ -36,6 +36,12 @@ class Presupuesto{
         this.restante = this.presupuesto - gastado;
             //console.log(this.restante)
     }
+
+    eliminarGasto(id){
+        this.gastos = this.gastos.filter( gasto => gasto.id !== id );
+        this.calcularRestante();
+            //console.log(this.gastos)
+    }
 };
 
 // CLASS User Interface
@@ -72,7 +78,7 @@ class UI{
         }, 3000)
     }
 
-    agregarGastoListado(gastos){
+    mostrarGastos(gastos){
 
         this.limpiarHTML();
         
@@ -93,6 +99,7 @@ class UI{
             const btnBorrar = document.createElement('button');
             btnBorrar.classList.add('btn', 'btn-danger', 'borrar');
             btnBorrar.innerHTML = 'Borrar &times;';
+            btnBorrar.onclick = () => { eliminarGasto(id) }
             nuevoGasto.appendChild(btnBorrar);
 
             // Agregar al HTML
@@ -111,6 +118,10 @@ class UI{
     }
 
     comprobarPresupuesto(presupuestoObj){
+        /*
+            ♦ Comprueba que el restante sea menos del 25% y del 50% para modificar las clases y cambiar la apariencia del div .restante.
+            ♦ También verifica si el presupuesto se ha agotado y bloquea el botón de agregar.
+        */
         const {presupuesto, restante} = presupuestoObj
 
         const restanteDiv = document.querySelector('.restante');
@@ -123,6 +134,7 @@ class UI{
         } else if ((presupuesto / 2) > restante){
             restanteDiv.classList.remove('alert-success');
             restanteDiv.classList.add('alert-warning');
+            //console.log('gastaste el 50% (!)')
         }
 
         // si el total es 0 o menor
@@ -184,10 +196,20 @@ function agregarGasto(e){
 
     // imprime el gasto:
     const { gastos, restante } = presupuesto;
-    ui.agregarGastoListado(gastos);
+    ui.mostrarGastos(gastos);
     ui.actualizarRestante(restante);
     ui.comprobarPresupuesto(presupuesto);
 
     // reinicia el formulario
     formulario.reset(presupuesto);
+}
+
+/* Eliminar Gasto */
+function eliminarGasto(id){
+    presupuesto.eliminarGasto(id);              // Usa el método eliminarGasto de presupuesto para borrar un gasto en función de su ID
+    
+    const {gastos, restante} = presupuesto;
+    ui.mostrarGastos(gastos);                   // actualiza la lista de gastos en el HTML
+    ui.actualizarRestante(restante);            // actualiza el restante
+    ui.comprobarPresupuesto(presupuesto);       // comprueba el estado del presupuesto para hacer los cambios visuales necesarios en el HTML
 }
