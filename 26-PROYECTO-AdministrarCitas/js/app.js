@@ -7,7 +7,7 @@ const sintomasInput = document.querySelector('#sintomas');
 
 // Objeto de Cita
 const citaObj = {
-    paciente: '',
+    mascota: '',
     propietario: '',
     email: '',
     fecha: '',
@@ -15,3 +15,15 @@ const citaObj = {
 }
 
 console.log(citaObj);
+
+// EVENTOS
+pacienteInput.addEventListener('change', datosCita);
+propietarioInput.addEventListener('change', datosCita);
+emailInput.addEventListener('change', datosCita);
+fechaInput.addEventListener('change', datosCita);
+sintomasInput.addEventListener('change', datosCita);
+
+function datosCita(e){
+    citaObj[e.target.name] = e.target.value;
+    console.log(citaObj);
+}
